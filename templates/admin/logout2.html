@@ -1,0 +1,27 @@
+{% extends "admin/layout2.html" %}
+{% block content %}
+  <div id="app">
+    <section class="section">
+      <div class="container mt-5">
+        <div class="row justify-content-center">
+          <div class="col-12 col-sm-8 col-md-6 col-lg-5">
+            <div class="card card-primary shadow">
+              <div class="card-header text-center">
+                <h4>Logout</h4>
+              </div>
+              <div class="card-body text-center">
+               <img src="{{ url_for('static', filename='admin/assets/img/todo.png') }}" alt="Logout" width="120" class="mb-3">
+                <h5>You have been logged out successfully!</h5>
+                <p class="text-muted mt-2">You can safely close this window or return to the dashboard.</p>
+                <a href="{{ url_for('home2')}}" class="btn btn-primary mt-3">Back to Dashboard</a>
+              </div>
+            </div>
+            <div class="simple-footer text-center mt-4">
+              © 2025 To-Do Admin Panel. All Rights Reserved.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+{% endblock %}

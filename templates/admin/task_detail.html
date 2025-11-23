@@ -1,0 +1,49 @@
+{% extends "admin/layout2.html" %}
+{% block content %}
+
+<div class="main-content">
+  <section class="section">
+    <div class="section-header">
+      <h3>User Tasks</h3>
+    </div>
+
+    <div class="section-body">
+      <table class="table table-striped">
+
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Task Title</th>
+            <th>Description</th>
+            <th>Due Date</th>
+            <th>Status</th>
+            <th>Created Date</th>
+            <th>Priority</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {% for j in data %}
+          <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ j[1] }}</td>
+            <td>{{ j[2] }}</td>
+            <td>{{ j[3].strftime('%d-%m-%Y') }}</td>
+            {% if j[4]==0 %}
+            <td>Pending</td>
+            {% else %}
+            <td>Completed</td>
+            {% endif %}
+            <td>{{ j[5].strftime('%d-%m-%Y') }}</td>
+            <td>{{ j[7] }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+
+      </table>
+      
+    </div>
+  </section>
+</div>
+
+{% endblock %}

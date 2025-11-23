@@ -1,0 +1,48 @@
+{% extends "admin/layout2.html" %}
+{% block content %}
+  <div class="main-content">
+    <section class="section">
+      <div class="section-header">
+        <h1>Reports</h1>
+      </div>
+
+      <!-- Task Summary -->
+      <div class="card">
+        <h4>Task Summary</h4>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>User</th>
+              <th>Total Tasks</th>
+              <th>Completed</th>
+              <th>Pending</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>John Doe</td>
+              <td>8</td>
+              <td>6</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Emma Smith</td>
+              <td>5</td>
+              <td>4</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Alex Brown</td>
+              <td>9</td>
+              <td>8</td>
+              <td>1</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+{% endblock %}

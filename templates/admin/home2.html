@@ -1,0 +1,188 @@
+{% extends "admin/layout2.html" %}
+{% block content %}
+
+<div class="main-content">
+  <section class="section">
+    <div class="section-header">
+      <h1>Dashboard Overview</h1>
+    </div>
+
+    <!-- ===== Statistics Cards ===== -->
+    <div class="row">
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-statistic-1">
+          <div class="card-icon bg-primary"><i class="fas fa-clipboard-list"></i></div>
+          <div class="card-wrap">
+            <div class="card-header"><h4>Today All Tasks</h4></div>
+            <div class="card-body">{{total_today}}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-statistic-1">
+          <div class="card-icon bg-warning"><i class="fas fa-hourglass-half"></i></div>
+          <div class="card-wrap">
+            <div class="card-header"><h4>Today Pending Tasks</h4></div>
+            <div class="card-body">{{pending}}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-statistic-1">
+          <div class="card-icon bg-success"><i class="fas fa-check-circle"></i></div>
+          <div class="card-wrap">
+            <div class="card-header"><h4>Today Completed Tasks</h4></div>
+            <div class="card-body">{{completed}}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-statistic-1">
+          <div class="card-icon bg-info"><i class="fas fa-users"></i></div>
+          <div class="card-wrap">
+            <div class="card-header"><h4>Total Users</h4></div>
+            <div class="card-body">{{total_users}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== All Tasks Table ===== -->
+    <div class="card">
+      <div class="card-header"><h4>All Tasks</h4></div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>User Name</th>
+            <th>Task Title</th>
+            <th>Description</th>
+            <th>Due Date</th>
+            <th>Status</th>
+            <th>Created_date</th>
+            <th>User_id</th>
+            <th>Priority</th>
+              </tr>
+            </thead>
+            <tbody>
+  {% for j in data2 %}
+  <tr>
+    <td>{{ loop.index }}</td>
+    <td>{{ j[0] }}</td>
+    <td>{{ j[2] }}</td>
+    <td>{{ j[3] }}</td>
+    <td>{{ j[4].strftime('%d-%m-%Y') }}</td>
+
+    {% if j[5] == 0 %}
+      <td>Pending</td>
+    {% else %}
+      <td>Completed</td>
+    {% endif %}
+
+    <td>{{ j[6].strftime('%d-%m-%Y') }}</td>
+    <td>{{ j[7] }}</td>
+    <td>{{ j[8] }}</td>
+  </tr>
+  {% endfor %}
+</tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== Registered Users Table ===== -->
+    <div class="card mt-4">
+      <div class="card-header"><h4>Registered Users</h4></div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>User ID</th>
+            <th>Name</th>
+            <th>Password</th>
+            <th>Date</th>
+            <th>Email</th>
+            <th>Status</th>
+            <th>Contact number</th>
+            <th>Gender</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>U101</td>
+            <td>Riya Mehta</td>
+            <td>1234</td>
+            <td>2025-10-01</td>
+            <td>riya@gmail.com</td>
+            <td>Pending</td>
+            <td>9965782945</td>
+            <td>Female</td>
+              </tr>
+              <tr>
+                <td>U202</td>
+                <td>Emma Smith</td>
+                <td>2206</td>
+                <td>2025-11-06</td>
+                <td>emma@example.com</td>
+                <td>Pending</td>
+                <td>8907654632</td>
+                <td>Female</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== Task Management Table ===== -->
+    <div class="card mt-4">
+      <div class="card-header"><h4>Manage Tasks</h4></div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Task ID</th>
+                <th>Task Title</th>
+                <th>Description</th>
+                <th>Assigned To</th>
+                <th>Deadline</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>#1</td>
+                <td>Design Homepage</td>
+                <td>UI design for dashboard</td>
+                <td>John Doe</td>
+                <td>2025-11-10</td>
+                <td><span class="badge badge-info">In Progress</span></td>
+                <td><button class="btn btn-danger btn-sm">Remove</button></td>
+              </tr>
+              <tr>
+                <td>#2</td>
+                <td>Write Documentation</td>
+                <td>Prepare user manual</td>
+                <td>Emma Smith</td>
+                <td>2025-11-07</td>
+                <td><span class="badge badge-success">Completed</span></td>
+                <td><button class="btn btn-danger btn-sm">Remove</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </section>
+</div>
+
+{% endblock %}

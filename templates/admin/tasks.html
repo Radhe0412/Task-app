@@ -1,0 +1,41 @@
+{% extends "admin/layout2.html" %}
+{% block content %}
+<div class="main-content">
+  <section class="section">
+    <div class="section-header">
+      <h1>Manage Tasks</h1>
+    </div>
+
+    <div class="section-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Task Title</th>
+            <th>Description</th>
+            <th>Due Date</th>
+            <th>Status</th>
+            <th>Created_date</th>
+            <th>User_id</th>
+            <th>Priority</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Fix login bug</td>
+            <td>Resolve user login issue</td>
+            <td>2025-12-10</td>
+            <td>In Progress</td>
+            <td>2025-11-10</td>
+            <td>1</td>
+            <td>Medium</td>
+            <td><button class="btn btn-danger btn-sm">Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div>
+{% endblock %}

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="keywords" content="todo, tasks, planner, productivity">
+  <meta name="author" content="My ToDo App">
+  <meta name="robots" content="index, follow">
+  <meta name="description" content="My ToDo App - Manage your daily tasks easily.">
+  <meta property="og:title" content="My ToDo App">
+  <meta property="og:description" content="Organize your day, manage tasks and boost productivity.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="icon" href="static/user/assets/images/todo.png" type="image/png" />
+  <link rel="shortcut icon" type="image/png" href="static/user/assets/images/todo.png" />
+  <title>{% block title %}My ToDo App | Dashboard{% endblock %}</title>
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" type="text/css" href="static/user/assets/css/assets.css">
+  <link rel="stylesheet" type="text/css" href="static/user/assets/css/typography.css">
+  <link rel="stylesheet" type="text/css" href="static/user/assets/css/shortcodes/shortcodes.css">
+  <link rel="stylesheet" type="text/css" href="static/user/assets/css/style.css">
+  <link rel="stylesheet" type="text/css" href="static/user/assets/css/color/color-1.css">
+  <link rel="stylesheet" type="text/css" href="static/user/assets/css/todo-navbar.css">
+  <link rel="stylesheet" href="static/user/assets/css/todo-task-form.css">
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header rs-nav">
+    <div class="top-bar">
+      <div class="container">
+        <div class="row d-flex justify-content-between">
+          <div class="topbar-left"></div>
+          <div class="topbar-right">
+            <ul>
+              {% if (session.user_id == null): %}
+              <li><a href="{{url_for('login')}}">Login</a></li>
+              <li><a href="{{url_for('register')}}">Register</a></li>
+              {% else: %}
+              <li><h4 style="color: white;">Welcome {{session['user_name']}}</h4></li>
+              <li><a href="{{url_for('logout')}}">Logout</a></li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sticky-header navbar-expand-lg">
+      <div class="menu-bar clearfix">
+        <div class="container clearfix">
+          <!-- Logo -->
+          <div class="menu-logo">
+            <a href="{{url_for('home')}}">
+              <img src="static/user/assets/images/todo.png" alt="My ToDo App Logo" height="40">
+            </a>
+          </div>
+
+          <!-- Mobile Nav Button -->
+          <button class="navbar-toggler collapsed menuicon justify-content-end" type="button" data-toggle="collapse"
+            data-target="#menuDropdown" aria-controls="menuDropdown" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span></span><span></span><span></span>
+          </button>
+
+          <!-- Navigation Menu -->
+          <div class="menu-links navbar-collapse collapse justify-content-start" id="menuDropdown">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="{{url_for('home')}}">Dashboard</a></li>
+              <li><a href="javascript:;">My Tasks <i class="fa fa-chevron-down"></i></a>
+                <ul class="sub-menu">
+                  <li><a href="{{url_for('all_tasks')}}">All Tasks</a></li>
+                  <li><a href="{{url_for('pending_tasks')}}">Pending</a></li>
+                  <li><a href="{{url_for('done_tasks')}}">Completed</a></li>
+                  <li><a href="{{url_for('today_tasks')}}">Today</a></li>
+                  <li><a href="{{url_for('upcoming_tasks')}}">Upcoming</a></li>
+                </ul>
+              </li>
+              <li><a href="{{url_for('add_task')}}">Add Task</a></li>
+              {% if (session.user_id == null): %}
+              <li><a href="#"></a></li>
+              {% else %}
+              <li><a href="{{url_for('profile')}}">Profile</a></li>
+              {% endif %}
+            </ul>
+
+            <div class="nav-social-link">
+              <a href="#"><i class="fa fa-facebook"></i></a>
+              <a href="#"><i class="fa fa-google-plus"></i></a>
+              <a href="#"><i class="fa fa-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  {% block content %}{% endblock %}
+
+  <!-- Footer -->
+  <footer class="todo-footer">
+    <div class="todo-footer-top">
+      <div class="todo-footer-inner">
+        <div class="footer-col">
+          <img src="static/user/assets/images/todo.png" alt="My ToDo App Logo" class="footer-logo">
+          <p>Manage tasks, stay organized, and boost productivity with My ToDo App.</p>
+        </div>
+
+        <div class="footer-col">
+          <h5>Quick Links</h5>
+          <ul>
+            <li><a href="{{url_for('home')}}">Dashboard</a></li>
+            <li><a href="{{url_for('add_task')}}">Add Task</a></li>
+            <li><a href="{{url_for('all_tasks')}}">All Tasks</a></li>
+            <li><a href="{{url_for('profile')}}">Profile</a></li>
+            <li><a href="{{url_for('contact_2')}}">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Stay Updated</h5>
+          <form class="footer-subscribe">
+            <input type="email" placeholder="Your Email Address" required>
+            <button type="submit"><i class="fa fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="todo-footer-bottom">
+      <p>© 2025 My ToDo App</p>
+    </div>
+  </footer>
+
+  <!-- JS Vendor Files -->
+  <script src="static/user/assets/js/jquery.min.js"></script>
+  <script src="static/user/assets/vendors/bootstrap/js/popper.min.js"></script>
+  <script src="static/user/assets/vendors/bootstrap/js/bootstrap.min.js"></script>
+  <script src="static/user/assets/vendors/bootstrap-select/bootstrap-select.min.js"></script>
+  <script src="static/user/assets/vendors/magnific-popup/magnific-popup.js"></script>
+  <script src="static/user/assets/vendors/counter/waypoints-min.js"></script>
+  <script src="static/user/assets/vendors/counter/counterup.min.js"></script>
+  <script src="static/user/assets/vendors/owl-carousel/owl.carousel.js"></script>
+  <script src="static/user/assets/js/functions.js"></script>
+  <script src="static/user/assets/js/contact.js"></script>
+  <script src="static/user/assets/vendors/switcher/switcher.js"></script>
+  <script src="static/user/assets/js/tasks.js"></script>
+</body>
+</html>

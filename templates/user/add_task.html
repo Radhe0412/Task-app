@@ -1,0 +1,27 @@
+{% extends "user/layout.html" %}
+{% block content %}
+<body>
+
+<div class="page-wraper">
+    <div class="container mt-5">
+
+        <!-- Add Task Form -->
+        <div class="task-form-container">
+            <h3>Add New Task</h3>
+            <form method="POST" action="{{url_for('add_task_process')}}">
+                <input type="text" name="task_title" placeholder="Task Title" required>
+                <textarea name="task_description" placeholder="Task Description"></textarea>
+                <input type="date" name="due_date" required>
+                <input type="date" name="created_date" required>
+                <select name="priority">
+                    <option value="High">High</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Low">Low</option>
+                </select>
+                <button type="submit">Add Task</button>
+            </form>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

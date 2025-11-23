@@ -1,0 +1,56 @@
+{% extends "user/layout.html" %}
+{% block content %}
+<div class="page-wraper">
+    <div class="container mt-5">
+
+        <!-- Profile Form -->
+        <div class="task-form-container">
+            <h3>User Profile</h3>
+            <form method="post" action="{{url_for('update_profile')}}">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="user_name" placeholder="Enter Username" value="{{info[1]}}" required>
+                <input type="text" name="user_id" value="{{info[0]}}">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="user_email" placeholder="Enter Email" value="{{info[4]}}" required>
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="user_pass" placeholder="Enter Password" value="{{info[2]}}" required>
+                <!-- Gender -->
+                <div class="col-lg-12">
+                    <div class="form-group">
+                        <label class="text-label d-block">Gender:</label>
+                        <div class="gender-options">
+
+                            <label>
+                                <input type="radio" name="gender" value="Male"
+                                    {% if info[7] == "Male" %}checked{% endif %}> 
+                                Male
+                            </label>
+
+                            <label>
+                                <input type="radio" name="gender" value="Female"
+                                    {% if info[7] == "Female" %}checked{% endif %}> 
+                                Female
+                            </label>
+
+                        </div>
+                    </div>
+                </div>
+
+
+<div class="col-lg-12">
+  <div class="form-group">
+    <label for="date_added" class="text-label">Date Of Birth:</label>
+    <input id="date_added" name="date" type="date" value="{{info[3]}}" class="form-control">
+  </div>
+</div>
+        
+                <button type="submit" name="submit">Update Profile</button>
+            </form>
+           
+        </div>
+
+    </div>
+</div>
+{% endblock %}
+

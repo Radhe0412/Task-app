@@ -1,0 +1,87 @@
+{% extends "user/layout.html" %}
+{% block content %}
+<body id="bg">
+<div class="page-wraper">
+	<div class="account-form">
+		<div class="account-head" style="background-image:url(static/user/assets/images/background/bg2.jpg);">
+			<a href="index.html"><img src="static/user/assets/images/todo.png" alt=""></a>
+		</div>
+		<div class="account-form-inner">
+			<div class="account-container">
+				<div class="heading-bx left">
+					<h2 class="title-head">Sign Up <span>Now</span></h2>
+					<p>Login Your Account <a href="{{url_for('login')}}">Click here</a></p>
+				</div>	
+				<form method='POST' action="{{url_for('register_process')}}" class ="contact-bx">
+					<div class="row placeani">
+						<div class="col-lg-12">
+							<div class="form-group">
+								<div class="input-group">
+									<label>Your Name</label>
+									<input name="user_name" type="text" required="" class="form-control">
+								</div>
+							</div>
+						</div>
+                        
+                    <div class="col-lg-12">
+                    <div class="form-group">
+                    <label for="contact_no" class="text-label">Contact No:</label>
+                    <input id="contact_no" name="contact_no" type="tel" pattern="[0-9]{10}" placeholder="Enter 10-digit number" required class="form-control">
+                    </div>
+                    </div>
+						<div class="col-lg-12">
+							<div class="form-group">
+								<div class="input-group">
+									<label>Your Email Address</label>
+									<input name="user_email" type="email" required="" class="form-control">
+								</div>
+							</div>
+						</div>
+
+						<div class="col-lg-12">
+							<div class="form-group">
+								<div class="input-group"> 
+									<label>Your Password</label>
+									<input name="user_pass" type="password" class="form-control" required="">
+								</div>
+							</div>
+						</div>
+
+
+
+                        <div class="col-lg-12">
+                        <div class="form-group">
+                        <label class="text-label d-block">Gender:</label>
+                        <div class="gender-options">
+                        <label><input type="radio" name="gender" value="Male" required> Male</label>
+                        <label><input type="radio" name="gender" value="Female"> Female</label>
+                        </div>
+                        </div>
+                        </div>
+
+
+<div class="col-lg-12">
+  <div class="form-group">
+    <label for="date_added" class="text-label">Date Of Birth:</label>
+    <input id="date_added" name="date" type="date" required class="form-control">
+  </div>
+</div>
+
+						<div class="col-lg-12 m-b30">
+							<button name="submit" type="submit" value="Submit" class="btn button-md">Sign Up</button>
+						</div>
+
+						<div class="col-lg-12">
+							<h6>Sign Up with Social media</h6>
+							<div class="d-flex">
+								<a class="btn flex-fill m-r5 facebook" href="#"><i class="fa fa-facebook"></i>Facebook</a>
+								<a class="btn flex-fill m-l5 google-plus" href="#"><i class="fa fa-google-plus"></i>Google Plus</a>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

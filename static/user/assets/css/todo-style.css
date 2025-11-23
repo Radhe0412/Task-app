@@ -1,0 +1,67 @@
+<!-- Navigation Menu 
+<div class="menu-links navbar-collapse collapse justify-content-start" id="menuDropdown">
+  <div class="menu-logo">
+    <a href="index.html"><img src="assets/images/mytodo_logo.png" alt="My ToDo App Logo"></a>
+  </div>
+
+  <ul class="nav navbar-nav">
+    <!-- Home -->
+    <li class="active">
+      <a href="index.html">Home</a>
+    </li>
+
+    <!-- My Tasks Dropdown -->
+    <li class="has-dropdown">
+      <a href="#" class="dropdown-toggle">My Tasks <i class="fa fa-chevron-down"></i></a>
+      <ul class="sub-menu">
+        <li><a href="all-tasks.html">All Tasks</a></li>
+        <li><a href="pending-tasks.html">Pending Tasks</a></li>
+        <li><a href="completed-tasks.html">Completed Tasks</a></li>
+        <li><a href="today-tasks.html">Today's Tasks</a></li>
+        <li><a href="upcoming-tasks.html">Upcoming Tasks</a></li>
+      </ul>
+    </li>
+
+    <!-- Add Task (mega-like) -->
+    <li class="has-dropdown add-mega-menu">
+      <a href="#" class="dropdown-toggle">Add Task <i class="fa fa-chevron-down"></i></a>
+      <ul class="sub-menu add-menu">
+        <li class="add-menu-left">
+          <h5 class="menu-adv-title">Task Options</h5>
+          <ul>
+            <li><a href="add-task.html">Add New Task</a></li>
+            <li><a href="add-category.html">Add Category</a></li>
+            <li><a href="task-reminder.html">Set Reminder</a></li>
+            <li><a href="task-priority.html">Set Priority</a></li>
+          </ul>
+        </li>
+        <li class="add-menu-right">
+          <img src="assets/images/adv/task-banner.jpg" alt=""/>
+        </li>
+      </ul>
+    </li>
+
+    <!-- Profile -->
+    <li class="has-dropdown">
+      <a href="#" class="dropdown-toggle">Profile <i class="fa fa-chevron-down"></i></a>
+      <ul class="sub-menu">
+        <li><a href="profile.html">View Profile</a></li>
+        <li><a href="edit-profile.html">Edit Profile</a></li>
+        <li><a href="change-password.html">Change Password</a></li>
+      </ul>
+    </li>
+
+    <!-- Logout -->
+    <li>
+      <a href="logout.html">Logout <i class="fa fa-sign-out"></i></a>
+    </li>
+  </ul>
+
+  <!-- Social Links -->
+  <div class="nav-social-link">
+    <a href="#"><i class="fa fa-facebook"></i></a>
+    <a href="#"><i class="fa fa-google-plus"></i></a>
+    <a href="#"><i class="fa fa-linkedin"></i></a>
+  </div>
+</div>
+

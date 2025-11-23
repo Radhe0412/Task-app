@@ -1,0 +1,52 @@
+{% extends "admin/layout2.html" %}
+{% block content %}
+<div class="main-content">
+  <section class="section">
+    <div class="section-header">
+      <h1>Manage Users</h1>
+    </div>
+
+    <div class="section-body">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Number</th>
+            <th>Name</th>
+            <th>Due Date</th>
+            <th>Email</th>
+            <th>Contact number</th>
+            <th>Gender</th>
+            <th>Status</th>
+            <th>Action</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          {% set count = 1 %}
+          {% for j in data %}
+          {% set count = loop.index %}
+          <tr>
+            <td>{{count}}</td>
+            <td>{{j[1]}}</td>
+            <td>{{j[3].strftime('%d-%m-%Y')}}</td>
+            <td>{{j[4]}}</td>
+            <td>{{j[6]}}</td>
+            <td>{{j[7]}}</td>
+            {% if j[5]==0 %}
+            <td><a href="{{url_for('status_update',user_id=j[0])}}" class="btn btn-danger">Block</a></td>
+            {% else %}
+            <td><a href="{{url_for('status2_update',user_id=j[0])}}" class="btn btn-success">Unblock</a></td>
+            {% endif %}
+            <td>
+              <form action="{{url_for('task_detail',user_id=j[0])}}">
+                        <button type="submit" class="btn-success">View Task</button>
+              </form>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div>
+{% endblock %}

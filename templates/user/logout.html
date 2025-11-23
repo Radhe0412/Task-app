@@ -1,0 +1,15 @@
+{% extends "user/layout.html" %}
+{% block content %}
+<div class="page-wraper">
+    <div class="container mt-5">
+        <div class="task-form-container" style="text-align:center;">
+            <h3>Logout</h3>
+            <p>Are you sure you want to log out?</p>
+              <form method="POST" action="logout.html" style="display:inline-block; margin-right:10px;">
+                <button type="submit" class="btn-logout">Yes, Logout</button>
+            </form>
+            <a href="{{url_for('home')}}" class="btn-cancel">Cancel</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

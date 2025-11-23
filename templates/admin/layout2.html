@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do Admin Dashboard</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="{{ url_for('static', filename='admin/assets/img/todo.png') }}">
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='admin/assets/css/app.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='admin/assets/css/admin_style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='admin/assets/bundles/apexcharts/apexcharts.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='admin/assets/css/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='admin/assets/css/components.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='admin/assets/css/custom.css') }}">
+</head>
+
+<body>
+  <div id="app">
+    <div class="main-wrapper main-wrapper-1">
+
+      <!-- Navbar -->
+      <div class="navbar-bg"></div>
+      <nav class="navbar navbar-expand-lg main-navbar sticky">
+        <div class="form-inline mr-auto">
+          <ul class="navbar-nav mr-3">
+            <li>
+              <a href="#" data-toggle="sidebar" class="nav-link nav-link-lg collapse-btn">
+                <i data-feather="menu"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <ul class="navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" data-toggle="dropdown">
+              <img src="{{ url_for('static', filename='admin/assets/img/user.png') }}" 
+                alt="Profile" class="profile-image">
+
+
+              <span class="d-sm-none d-lg-inline-block">Hi, Admin</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right">
+              <a href="{{ url_for('profile2') }}" class="dropdown-item has-icon"><i class="far fa-user"></i> Profile</a>
+              <a href="{{ url_for('login2') }}" class="dropdown-item has-icon"><i class="far fa-user"></i> Login</a>
+              <div class="dropdown-divider"></div>
+              <a href="{{ url_for('logout2')}}" class="dropdown-item has-icon text-danger"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+<!-- Sidebar -->
+      <div class="main-sidebar sidebar-style-2">
+        <aside id="sidebar-wrapper">
+          <div class="sidebar-brand">
+            <a href="{{url_for('home2')}}"><span class="logo-name">To-Do Admin</span></a>
+          </div>
+          <ul class="sidebar-menu">
+            <li class="menu-header">Dashboard</li>
+            <li class="dropdown active">
+              <a href="{{url_for('home2')}}" class="nav-link"><i data-feather="monitor"></i><span>Overview</span></a>
+            </li>
+            <li class="menu-header">Manage</li>
+            <li><a href="{{url_for('tasks')}}" class="nav-link"><i data-feather="check-circle"></i><span>Tasks</span></a></li>
+            <li><a href="{{url_for('users')}}" class="nav-link"><i data-feather="users"></i><span>Users</span></a></li>
+            <li><a href="{{(url_for('logout2'))}}" class="nav-link"><i data-feather="settings"></i><span>Logout</span></a></li>
+          </ul>
+        </aside>
+      </div>
+
+      <!-- Page Content -->
+      {% block content %}{% endblock %}
+
+      <!-- Footer -->
+      <footer class="main-footer">
+        <div class="footer-left">© 2025 To-Do Web Application Admin Panel</div>
+        <div class="footer-right">v1.0</div>
+      </footer>
+    </div>
+  </div>
+
+  <!-- JS Files -->
+  <script src="{{ url_for('static', filename='admin/assets/js/app.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='admin/assets/bundles/apexcharts/apexcharts.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='admin/assets/js/page/index.js') }}"></script>
+  <script src="{{ url_for('static', filename='admin/assets/js/scripts.js') }}"></script>
+  <script src="{{ url_for('static', filename='admin/assets/js/custom.js') }}"></script>
+</body>
+</html>

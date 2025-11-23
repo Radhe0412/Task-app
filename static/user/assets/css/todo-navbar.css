@@ -1,0 +1,168 @@
+/* ===== Navbar ===== */
+header.header {
+  background-color: #4e54c8; /* gradient base */
+  background: linear-gradient(135deg, #4e54c8, #8f94fb);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+/* Top Bar */
+.top-bar {
+  background-color: rgba(255,255,255,0.05);
+  padding: 5px 0;
+}
+
+.top-bar ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+.top-bar ul li a {
+  color: #fff;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.top-bar ul li a:hover {
+  color: #ffeb3b;
+}
+
+/* Main Menu */
+.menu-bar {
+  padding: 10px 0;
+}
+
+.menu-logo img {
+  max-height: 50px;
+}
+
+/* Navigation links */
+.navbar-nav li a {
+  color: #fff;
+  font-weight: 500;
+  padding: 10px 15px;
+  transition: all 0.3s ease;
+}
+
+.navbar-nav li a:hover,
+.navbar-nav li.active > a {
+  color: #ffeb3b;
+  background-color: rgba(255,255,255,0.1);
+  border-radius: 5px;
+}
+
+/* Sub-menu */
+.sub-menu {
+  background-color: rgba(255,255,255,0.05);
+  border-radius: 5px;
+  display: none;
+  position: absolute;
+  margin-top: 5px;
+  padding: 10px 0;
+}
+
+.navbar-nav li:hover > .sub-menu {
+  display: block;
+}
+
+.sub-menu li a {
+  color: #fff;
+  display: block;
+  padding: 8px 20px;
+}
+
+.sub-menu li a:hover {
+  background-color: rgba(255,255,255,0.1);
+}
+
+/* Social Links */
+.nav-social-link a {
+  color: #fff;
+  margin-left: 10px;
+  transition: color 0.3s ease;
+}
+
+.nav-social-link a:hover {
+  color: #ffeb3b;
+}
+
+/* Mobile Menu */
+.navbar-toggler {
+  border: none;
+  outline: none;
+}
+
+.navbar-toggler span {
+  background-color: #fff;
+  display: block;
+  height: 3px;
+  width: 25px;
+  margin: 5px 0;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Sticky header effects */
+.sticky-header {
+  transition: all 0.3s ease;
+}
+.sticky-header.sticky {
+  padding: 5px 0;
+  background-color: rgba(78, 84, 200, 0.95);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+/* Task Card Layout */
+.task-card {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.task-card:hover {
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+}
+
+/* Task Title */
+.task-card h4 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #333;
+}
+
+/* Task Due Date */
+.task-card p {
+    margin-bottom: 10px;
+    color: #666;
+    font-size: 14px;
+}
+
+/* Status Labels */
+.status {
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 12px;
+    text-transform: capitalize;
+}
+
+/* Status Colors */
+.status.pending { background-color: #f39c12; }
+.status.completed { background-color: #27ae60; }
+.status.today { background-color: #2980b9; }
+.status.upcoming { background-color: #8e44ad; }
+
+/* Responsive */
+@media(max-width: 768px) {
+    .task-card {
+        margin-bottom: 15px;
+        padding: 15px;
+    }
+}

@@ -1,0 +1,90 @@
+{% extends "user/layout.html" %}
+{% block content %}
+<!-- Hero Section -->
+    <div class="section-area section-sp1 ovpr-dark bg-fix online-cours"
+      style="background-image:url(assets/images/background/bg1.jpg);">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center text-white">
+            <h2>Welcome to My ToDo App</h2>
+            <h5>Plan your day and track all your tasks in one place</h5>
+            <form class="cours-search">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search your tasks...">
+                <div class="input-group-append">
+                  <button class="btn" type="submit">Search</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="mw800 m-auto">
+          <div class="row">
+            <div class="col-md-4 col-sm-6">
+              <div class="cours-search-bx m-b30">
+                <div class="icon-box">
+                  <h3><i class="ti-user">{{total}}</i></h3>
+                </div>
+                <span class="cours-search-text">Total Tasks</span>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+              <div class="cours-search-bx m-b30">
+                <div class="icon-box">
+                  <h3><i class="ti-book"></i>{{pending}}</h3>
+                </div>
+                <span class="cours-search-text">Pending Tasks</span>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-12">
+              <div class="cours-search-bx m-b30">
+                <div class="icon-box">
+                  <h3><i class="ti-layout-list-post"></i  class="ti-book">{{completed}}</h3>
+                </div>
+                <span class="cours-search-text">Tasks Completed</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recent Tasks Section -->
+    <div class="page-wraper">
+    <div class="container mt-5">
+
+        <!-- Add / Update Task Form -->
+      
+
+<div class="page-wraper">
+    <div class="container mt-5">
+
+        <!-- Add / Update Task Form -->
+        <div class="task-form-container">
+            <h3>Add Task</h3>
+            <form method="POST" action="{{url_for('add_task_process')}}">
+                <input type="text" name="task_title" placeholder="Task Title" required>
+                <textarea name="task_description" placeholder="Task Description"></textarea>
+                <input type="date" name="due_date" required>
+                <input type="date" name="created_date" required>
+                <select name="priority">
+                    <option value="High">High</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Low">Low</option>
+                </select>
+                <button type="submit">Add Task</button>
+            </form>
+        </div>
+
+
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+
+    </div>
+</div>
+<!-- Tasks Container -->
+<div class="row" id="tasksContainer"></div>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "admin/layout2.html" %}
+{% block content %}
+<div class="main-content">
+  <section class="section">
+    <div class="section-header">
+      <h3>Profile</h3>
+    </div>
+
+    <div class="card profile-card">
+      <div class="profile-header">
+        <img src="{{ url_for('static', filename='admin/assets/img/user.png') }}" 
+             alt="Profile Picture" class="user-img-radious-style profile-pic">
+        <h3 class="profile-name">Admin Name</h3>
+        <p class="profile-role">Administrator</p>
+      </div>
+
+      <div class="profile-details">
+        <h4>Account Details</h4>
+        <table class="table">
+          {% for j in data %}
+          {% set count = loop.index %}
+          <tr><th>Admin Id:</th><td>{{j[0]}}</td></tr>
+          <tr><th>Email Address:</th><td>{{j[1]}}</td></tr>
+          <tr><th>Password:</th><td>{{j[2]}}</td></tr>
+          {% endfor %}
+        </table>
+
+        <h4>Edit Information</h4>
+        <form action="{{url_for('update_profile2')}}" method="post">
+          <div class="form-group">
+            <label>Admin Id</label>
+            <input type="text" class="form-control" placeholder="Enter your Id" name="admin_id" value="{{data[0][0]}}">
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" class="form-control" placeholder="Enter your email" name="admin_email" value="{{data[0][1]}}">
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" placeholder="Enter new password" name="admin_pass" value="{{data[0][2]}}">
+          </div>
+          <button type="submit" class="btn btn-primary">Update Profile</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>
+{% endblock %}
