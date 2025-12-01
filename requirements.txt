@@ -1,4 +1,4 @@
 Flask
-Flask-Session
-PyMySQL
+flask_session
+pymysql
 gunicorn

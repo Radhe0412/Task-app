@@ -44,7 +44,6 @@
             </a>
             <div class="dropdown-menu dropdown-menu-right">
               <a href="{{ url_for('profile2') }}" class="dropdown-item has-icon"><i class="far fa-user"></i> Profile</a>
-              <a href="{{ url_for('login2') }}" class="dropdown-item has-icon"><i class="far fa-user"></i> Login</a>
               <div class="dropdown-divider"></div>
               <a href="{{ url_for('logout2')}}" class="dropdown-item has-icon text-danger"><i class="fas fa-sign-out-alt"></i> Logout</a>
             </div>
@@ -63,7 +62,6 @@
               <a href="{{url_for('home2')}}" class="nav-link"><i data-feather="monitor"></i><span>Overview</span></a>
             </li>
             <li class="menu-header">Manage</li>
-            <li><a href="{{url_for('tasks')}}" class="nav-link"><i data-feather="check-circle"></i><span>Tasks</span></a></li>
             <li><a href="{{url_for('users')}}" class="nav-link"><i data-feather="users"></i><span>Users</span></a></li>
             <li><a href="{{(url_for('logout2'))}}" class="nav-link"><i data-feather="settings"></i><span>Logout</span></a></li>
           </ul>

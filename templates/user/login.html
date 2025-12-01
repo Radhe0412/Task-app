@@ -1,5 +1,8 @@
 {% extends "user/layout.html" %}
 {% block content %}
+{% if msg %}
+<script>alert('{{msg}}')</script>
+{% endif %}
 <body id="bg">
 <div class="page-wraper">
 	<div class="account-form">

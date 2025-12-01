@@ -1,5 +1,8 @@
 {% extends "user/layout.html" %}
 {% block content %}
+{% if msg %}
+<script>alert('{{msg}}')</script>
+{% endif %}
 <!-- Hero Section -->
     <div class="section-area section-sp1 ovpr-dark bg-fix online-cours"
       style="background-image:url(assets/images/background/bg1.jpg);">
@@ -8,9 +11,9 @@
           <div class="col-md-12 text-center text-white">
             <h2>Welcome to My ToDo App</h2>
             <h5>Plan your day and track all your tasks in one place</h5>
-            <form class="cours-search">
+            <form class="cours-search" action="{{url_for('view_task')}}" method="POST">
               <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search your tasks...">
+                <input type="text" class="form-control" placeholder="Search your tasks..." name="Task_name">
                 <div class="input-group-append">
                   <button class="btn" type="submit">Search</button>
                 </div>
@@ -25,7 +28,7 @@
             <div class="col-md-4 col-sm-6">
               <div class="cours-search-bx m-b30">
                 <div class="icon-box">
-                  <h3><i class="ti-user">{{total}}</i></h3>
+                  <h3><i class="ti-user"></i> {{ total }}</h3>
                 </div>
                 <span class="cours-search-text">Total Tasks</span>
               </div>

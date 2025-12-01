@@ -1,0 +1,47 @@
+{% extends "user/layout.html" %}
+{% block content %}
+<body>
+<div class="page-wraper">
+  <div class="container mt-5">
+
+    <h3>View Tasks</h3>
+
+    
+    <table class="table table-bordered mt-3">
+      <thead class="thead-dark">
+        <tr>
+          <th>#</th>
+          <th>Task Title</th>
+          <th>Description</th>
+          <th>Due Date</th>
+          <th>Status</th>
+          <th>Created Date</th>
+          <th>Priority</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% set count = 1 %}
+        {% for j in data %}
+        {% set count = loop.index %}
+        <tr>
+          <td scope="row">{{count}}</td>
+          <td>{{j[1]}}</td>
+          <td>{{j[2]}}</td>
+          <td>{{j[3].strftime('%d-%m-%Y')}}</td>
+          {% if j[4] == 0 %}
+          <td>Pending</td>
+          {% else %}
+          <td>Completed</td>
+          {% endif %}
+          <td>{{j[5].strftime('%d-%m-%Y')}}</td>
+          <td>{{j[7]}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    
+
+
+  </div>
+</div>
+{% endblock %}
